@@ -1,0 +1,39 @@
+<html>
+<head>
+    <title>Login Form</title>
+	<link rel="stylesheet" href="login5.css">
+</head>
+<body>
+ 
+ <div class="container">
+	<form action="frompage.html">
+ 
+       <h2 align=center >Login Form</h2>
+	   
+        <label>Email :</label><br>
+        <input type="email"
+               name="email"
+               placeholder="Enter Email"
+			   title="Only .com, .org, and .net emails are allowed"
+               pattern=".+\..+"		   
+               required>
+		<br><br>
+
+        <label>Password :</label><br>   
+		<input type="password"
+               name="password"
+			   id="pass"
+			   maxlength="8"
+               pattern="^(?=.*[a-z])(?=.*[A-Z])(?=.*\d)(?=.*[@$!%*?&])[A-Za-z\d@$!%*?&]{8,}$"
+               placeholder="Strong Password"
+               required>
+		<br><br>
+
+        <input type="submit" value="Login">
+        <input type="reset" value="Reset">
+		
+    </div>
+    </form>
+
+</body>
+</html>

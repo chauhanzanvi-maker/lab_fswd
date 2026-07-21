@@ -1,0 +1,104 @@
+
+<html>
+<head>
+    <title>Registration Form</title>
+    <link rel="stylesheet" href="form.css">
+</head>
+
+<body>
+
+<div class="container">
+    <h2>Registration Form</h2>
+
+    <form action="homepage.html" outsubmit="return checkedpassword()">
+
+        <label>Name</label>
+        <input type="text" 
+		       name="name" 
+			   maxlength="20" 
+			   placeholder="Enter your name"  
+			   required>
+
+        <br><br>
+
+        <label>Contact Number</label>
+        <input type="tel" 
+		       name="contact" 
+			   pattern="[0-9]{10}" 
+			   maxlength="10"  
+			   placeholder="Enter 10 digit mobile number" 
+			   required>
+
+        <br><br>
+
+        <label>Email Address</label>
+        <input type="email"
+               name="email"
+               placeholder="Enter Email"
+			   title="Only .com, .org, and .net emails are allowed"
+               pattern=".+\..+"		   
+               required>
+			     
+        <br><br>
+
+        <label>Password</label>
+        <input type="password"
+               name="password"
+			   id="pass"
+			   maxlength="8"
+               pattern="^(?=.*[a-z])(?=.*[A-Z])(?=.*\d)(?=.*[@$!%*?&])[A-Za-z\d@$!%*?&]{8,}$"
+               placeholder="Strong Password"
+               required>
+
+        <br><br>
+
+        <label>Confirm Password</label>
+        <input type="password"
+               name="confirmPassword"
+			   id="cpass"
+			   maxlength="8"
+			   pattern="^(?=.*[a-z])(?=.*[A-Z])(?=.*\d)(?=.*[@$!%*?&])[A-Za-z\d@$!%*?&]{8,}$"
+               placeholder="Re-enter Password"
+               required>
+
+        <br><br>
+		
+		<p id="message" style="color: red;"></p>
+		
+        <label>
+		<input type="submit" 
+		       value="Register" 
+			   onclick="validatePassword()">
+		</label>
+
+    </form>
+</div>
+
+
+</body>
+
+<script>
+function validatePassword() {
+   
+    var pass = document.getElementById("pass").value;
+    var confirmPass = document.getElementById("cpass").value;
+    var msg = document.getElementById("message");
+
+    if (pass === "" || confirmPass === "") {
+        msg.style.color = "red";
+        msg.innerHTML = "plase fill in both blank spaces.";
+        return false;
+    }
+    if (pass === confirmPass) {
+        msg.style.color = "green";
+        msg.innerHTML = "Password matched!";
+        return true;
+    } else {
+        msg.style.color = "red";
+        msg.innerHTML = "Password  do not match, please try again.";
+        return false;
+    }
+}
+</script>
+
+</html>
